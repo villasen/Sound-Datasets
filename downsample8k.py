@@ -5,11 +5,6 @@ import numpy as np
 #os.rmdir('/Users/martin/machine_learning/github/Sound-Datasets/downsampled_dataset/')
 
 os.chdimport os
-import librosa
-import soundfile
-import numpy as np
-#os.rmdir('/Users/martin/machine_learning/github/Sound-Datasets/downsampled_dataset/')
-
 os.chdir('Urban8K-Sorted/')
 
 for root, dirs, files in os.walk('.'):
