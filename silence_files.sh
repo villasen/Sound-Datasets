@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+IN_PATH=~/machine_learning/ESC-50-8kHz
+OUT_PATH=~/machine_learning/Silence-ESC-50
+
+echo show path: $IN_PATH 
+cd $IN_PATH
+
+OIFS=$IFS; IFS=$'\n'; array=($(ls )); IFS=$OIFS; echo "${array[0]}"
+#array=($(ls)); echo "${array[0]}"
+#cd ${array[0]}
+#ls -l
+
+echo size of : ${#array[@]}
+
+
+for revolution in "${array[@]}"; do
+    echo $revolution
+    mkdir -p ${OUT_PATH}/$revolution
+    cd   ${revolution}
+    #ls   -l
+    #OIFS=$IFS; IFS=$'\n'; inside_array=($(ls )); IFS=$OIFS; echo "${inside_array[0]}"
+    inside_array=($(ls )); #echo "${inside_array[0]}"
+    for inside_revolution in "${inside_array[@]}";do
+        echo "Listing: ${inside_revolution}"
+        sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}" silence 1 0.1 1%
+      
+    done
+   
+    cd ..
+done
+
+#chmod 777 ${out_sound_path}
+#cd ~/machine_learning/Silence-ESC-50/dog/
+#sox  "$in_sound_path" "out.wav" silence 1 0.1 1% 
+#sox "1-30226-A.wav" "out2.wav" silence 1 0.1 1%
+
+

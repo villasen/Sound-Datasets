@@ -1,7 +1,10 @@
 import os
 import librosa
 import soundfile
+import sox 
+
 import numpy as np
+
 #os.rmdir('/Users/martin/machine_learning/github/Sound-Datasets/downsampled_dataset/')
 
 os.chdimport os
