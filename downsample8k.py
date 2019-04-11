@@ -1,25 +1,29 @@
 import os
+import shutil
 import librosa
 import soundfile
-import sox 
 
 import numpy as np
 
-#os.rmdir('/Users/martin/machine_learning/github/Sound-Datasets/downsampled_dataset/')
+filePath = '/Users/martin/machine_learning/github/Sound-Datasets/ESC50-downsampled_silence_dataset/'
+input_dataset = 'Silence-ESC-50/'
+sample_rate = 8000
 
-os.chdimport os
-os.chdir('Urban8K-Sorted/')
+
+if os.path.exists(filePath):
+    shutil.rmtree(filePath , ignore_errors=True)
+    
+
+os.chdir(input_dataset)
 
 for root, dirs, files in os.walk('.'):
   label = root.lstrip('./')
-  path = '/Users/martin/machine_learning/github/Sound-Datasets/downsampled_dataset/' + label
+  path = filePath + label
   print(path)
   os.mkdir(path)
   for file in files:
     print(file)
-    data, sr = librosa.core.load(label + '/' + file, sr=8000, mono=True)
-    data.resize(40000)
-    librosa.util.fix_length(data, 40000)
-    soundfile.write('/Users/martin/machine_learning/github/Sound-Datasets/downsampled_dataset/' + label + '/' + file, data, sr, 'PCM_16')
-
-#os.chdir('/content/'
+    data, sr = librosa.core.load(label + '/' + file, sr=sample_rate, mono=True)
+    data.resize(sample_rate)
+    librosa.util.fix_length(data, sample_rate)
+    soundfile.write( filePath + label + '/' + file, data, sr, 'PCM_16')

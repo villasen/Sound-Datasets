@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
-IN_PATH=~/machine_learning/ESC-50-8kHz
-OUT_PATH=~/machine_learning/Silence-ESC-50
+IN_PATH=~/machine_learning/github/Sound-Datasets/ESC-50
+#IN_PATH=~/machine_learning/ESC-50-8kHz
+OUT_PATH=~/machine_learning/github/Sound-Datasets/Silence-ESC-50
 
 echo show path: $IN_PATH 
 cd $IN_PATH
@@ -25,15 +25,11 @@ for revolution in "${array[@]}"; do
     for inside_revolution in "${inside_array[@]}";do
         echo "Listing: ${inside_revolution}"
         sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}" silence 1 0.1 1%
-      
+  
     done
    
     cd ..
 done
 
-#chmod 777 ${out_sound_path}
-#cd ~/machine_learning/Silence-ESC-50/dog/
-#sox  "$in_sound_path" "out.wav" silence 1 0.1 1% 
-#sox "1-30226-A.wav" "out2.wav" silence 1 0.1 1%
 
 
