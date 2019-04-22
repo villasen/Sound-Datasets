@@ -4,13 +4,17 @@
 #IN_PATH=~/machine_learning/ESC-50-8kHz
 #OUT_PATH=~/machine_learning/github/Sound-Datasets/Silence-ESC-50
 
-# Converting for first phase
+# Converting for first phase for ESC-50
 #IN_PATH=~/machine_learning/github/Sound-Datasets/ESC-50
 #OUT_PATH=~/machine_learning/Datasets/Silence-ESC-50-16K
 
-# Converting for second phase
-IN_PATH=~/machine_learning/Datasets/ESC-50-16K
-OUT_PATH=~/machine_learning/Datasets/Final-ESC-50-16K
+# Converting for second phase for ESC-50
+#IN_PATH=~/machine_learning/Datasets/ESC-50-16K
+#OUT_PATH=~/machine_learning/Datasets/Final-ESC-50-16K
+
+# Converting for Urban8k
+IN_PATH=~/machine_learning/Datasets/Urban8k-Sorted
+OUT_PATH=~/machine_learning/Datasets/Urban8k-silence
 
 echo show path: $IN_PATH 
 cd $IN_PATH
