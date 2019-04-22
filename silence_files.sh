@@ -1,8 +1,16 @@
 #!/bin/bash
 
-IN_PATH=~/machine_learning/github/Sound-Datasets/ESC-50
+#Original set
 #IN_PATH=~/machine_learning/ESC-50-8kHz
-OUT_PATH=~/machine_learning/github/Sound-Datasets/Silence-ESC-50
+#OUT_PATH=~/machine_learning/github/Sound-Datasets/Silence-ESC-50
+
+# Converting for first phase
+#IN_PATH=~/machine_learning/github/Sound-Datasets/ESC-50
+#OUT_PATH=~/machine_learning/Datasets/Silence-ESC-50-16K
+
+# Converting for second phase
+IN_PATH=~/machine_learning/Datasets/ESC-50-16K
+OUT_PATH=~/machine_learning/Datasets/Final-ESC-50-16K
 
 echo show path: $IN_PATH 
 cd $IN_PATH
@@ -24,7 +32,8 @@ for revolution in "${array[@]}"; do
     inside_array=($(ls )); #echo "${inside_array[0]}"
     for inside_revolution in "${inside_array[@]}";do
         echo "Listing: ${inside_revolution}"
-        sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}" silence 1 0.1 1%
+        # removes all silence from file, leaving only sound
+        sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}" silence 1 0.1 1% -1 0.1 1%
   
     done
    
