@@ -39,19 +39,3 @@ for revolution in "${array[@]}"; do
 done
 
 
-#for revolution in "${array[@]}"; do
-#	echo $revolution
-#	mkdir -p ${OUT_PATH}/$revolution
-#	cd ${revolution}
-#	for inside_revolution in "${inside_array[@]}"; do
-#	    echo "Listing: ${inside_revolution}"
-
-#	    sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}$ONE" trim 0 00:01
-#	    sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}$TWO" trim 00:01 00:02
-#	    sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}$THREE" trim 00:02 00:03
-#	    sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}$FOUR" trim 00:03 00:04
-#	    sox "${IN_PATH}/${revolution}/${inside_revolution}" "${OUT_PATH}/${revolution}/${inside_revolution}$FIVE" trim 00:04 00:05
-#        done
-
-#	cd ..
-#done
